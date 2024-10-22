@@ -1,5 +1,6 @@
 import requests
 import json
+import datetime
 
 def get_helsinki_weather():
     # store contact info into a variable
@@ -19,5 +20,14 @@ def get_helsinki_weather():
     else:
         print('failed to fetch content, response code:', response.status_code)
 
+def get_days():
+    today = datetime.date.today()
+    tomorrow = today + datetime.timedelta(1)
+    day_after_tomorrow = today + datetime.timedelta(2)
+    # convert datetime objects into strings
+    days = [str(today), str(tomorrow), str(day_after_tomorrow)]
+    return days
+
 if __name__ == '__main__':
-    get_helsinki_weather()
+    #get_helsinki_weather()
+    print(get_days())
