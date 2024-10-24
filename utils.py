@@ -21,19 +21,23 @@ def get_correct_data():
     temperature = info['data']['instant']['details']['air_temperature']
     details = info['data']['next_1_hours']['summary']['symbol_code']
 
-    weather_data_next_3_days.append({
-      'date': date,
-      'time': time,
-      'temperature': temperature,
-      'details': details
-    })
-    
-    if date >= days[2]:
-      break
+    if time == '09:00:00' or time == '15:00:00' or time == '21:00:00':
+      weather_data_next_3_days.append({
+        'date': date,
+        'time': time,
+        'temperature': temperature,
+        'details': details
+      })
 
-  print(weather_data_next_3_days)
+    # 9pm day after tomorrow is the last info we need
+    if date == days[2] and time == '21:00:00':
+      break
 
   return weather_data_next_3_days
 
+def format_data():
+  weather_data = get_correct_data()
+  print(weather_data)
+
 if __name__ == '__main__':
-  get_correct_data()
+  format_data()
