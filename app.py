@@ -1,4 +1,4 @@
-from utils import get_correct_data
+from utils import print_data
 
 if __name__ == '__main__':
-  print(get_correct_data())
+  print_data()
