@@ -8,14 +8,18 @@ Also a good chance for some Python & Robot Framework nerdery!
 
 ## Todo
 
-- No need to append data from every hour into weather_data_next_3_days
-  - {9am} {3pm} {9pm} is enough
-- Tidy up the info in weather_data_next_3_days
+- Cleanup the 
 - Format: 3x {date, time} {temperature} {rain/norain}
 - Tests with Robot Framework
 - CI/CD
 
 ## Instructions
+
+Run the app
+
+```
+python3 app.py
+```
 
 Install Robot Framework in a virtual environment
 

@@ -1,5 +1,27 @@
 import datetime
-from weather import get_helsinki_weather
+import requests
+import json
+
+def get_helsinki_weather():
+  # store contact info into a variable
+  sitename = 'https://github.com/samposihvola/helsinki-weather-app/tree/main'
+  # endpoint with helsinki coordinates
+  url = 'https://api.met.no/weatherapi/locationforecast/2.0/compact?lat=60.192059&lon=24.945831'
+  # create useragent object to be used as credentials for the API
+  useragent = {
+    'User-Agent': sitename
+  }
+  response = requests.get(url, headers=useragent)
+  
+  if response.status_code == 200:
+    data = response.json()
+    # convert data to a JSON formatted string with 4 spaces of intendation
+    data_str = json.dumps(data, indent=4)
+    # convert data into a python dictionary
+    weather_data = json.loads(data_str)
+    return weather_data
+  else:
+    print('failed to fetch content, response code:', response.status_code)
 
 def get_days():
   today = datetime.date.today()
@@ -9,7 +31,7 @@ def get_days():
   days = [str(today), str(tomorrow), str(day_after_tomorrow)]
   return days
 
-def get_correct_data():
+def get_weather_data():
   days = get_days()
   all_weather_data = get_helsinki_weather()
   weather_data_next_3_days = []
@@ -35,9 +57,12 @@ def get_correct_data():
 
   return weather_data_next_3_days
 
-def format_data():
-  weather_data = get_correct_data()
-  print(weather_data)
-
-if __name__ == '__main__':
-  format_data()
+def print_data():
+  weather_data = get_weather_data()
+  
+  for info in weather_data:
+    print(info['date'], '', end='')
+    print(info['time'])
+    print(info['temperature'], '°C')
+    print(info['details'])
+    print('')
