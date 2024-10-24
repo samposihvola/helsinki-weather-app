@@ -8,8 +8,7 @@ Also a good chance for some Python & Robot Framework nerdery!
 
 ## Todo
 
-- Cleanup the 
-- Format: 3x {date, time} {temperature} {rain/norain}
+- Cleanup the print in app.py
 - Tests with Robot Framework
 - CI/CD
 
