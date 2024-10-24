@@ -6,6 +6,9 @@ I want to develop a straightforward tool that allows me to check the weather dir
 
 # Todo
 
+- No need to append data from every hour into weather_data_next_3_days
+  - {9am} {3pm} {9pm} is enough
+- Tidy up the info in weather_data_next_3_days
 - Format: 3x {date, time} {temperature} {rain/norain}
 - Tests with Robot Framework
 - CI/CD
