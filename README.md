@@ -2,9 +2,11 @@
 
 Python app that retrieves weather data for Helsinki from the yr.no API and displays it in a clear, user-friendly format.
 
-I want to develop a straightforward tool that allows me to check the weather directly from the command line. My primary motivation for this choice is because I am totally fixated with the command line, as it consistently behaves as expected. Also Python & Robot Framework nerdery is something that I just enjoy!
+I want to develop a straightforward tool that allows me to check the weather directly from the command line. 
+My primary motivation for this project is my obsession with the command line: it is by far my favourite UI. 
+Also a good chance for some Python & Robot Framework nerdery!
 
-# Todo
+## Todo
 
 - No need to append data from every hour into weather_data_next_3_days
   - {9am} {3pm} {9pm} is enough
@@ -12,3 +14,14 @@ I want to develop a straightforward tool that allows me to check the weather dir
 - Format: 3x {date, time} {temperature} {rain/norain}
 - Tests with Robot Framework
 - CI/CD
+
+## Instructions
+
+Install Robot Framework in a virtual environment
+
+```
+python3 -m venv .venv
+source .venv/bin/activate
+pip install robotframework
+robot --version
+```

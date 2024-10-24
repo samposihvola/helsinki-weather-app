@@ -11,6 +11,7 @@ def get_helsinki_weather():
     'User-Agent': sitename
   }
   response = requests.get(url, headers=useragent)
+  
   if response.status_code == 200:
     data = response.json()
     # convert data to a JSON formatted string with 4 spaces of intendation
