@@ -39,19 +39,18 @@ def get_weather_data():
     if 'next_6_hours' in info['data']:
       details = info['data']['next_6_hours']['summary']['symbol_code']
 
-    if time == '09:00:00' or time == '15:00:00' or time == '21:00:00':
-      date = date.split('-')
-      date.reverse()
+    if time == '09:00:00' or time == '12:00:00' or time == '18:00:00' or time == '00:00:00':
+      formatted_date = date.split('-')
+      formatted_date.reverse()
       weather_data_next_3_days.append({
-        'date': date[0] + '.' + date[1] + '.' + date[2],
+        'date': formatted_date[0] + '.' + formatted_date[1] + '.' + formatted_date[2],
         'time': time,
         'temperature': temperature,
         'details': details
       })
 
-    # 9pm day after tomorrow is the last info we need
     # convert datetime object into string
-    if date == str(day_after_tomorrow) and time == '21:00:00':
+    if date > str(day_after_tomorrow):
       break
 
   return weather_data_next_3_days
