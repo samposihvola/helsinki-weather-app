@@ -2,16 +2,17 @@
 
 Python app that retrieves weather data for Helsinki from the yr.no API and displays it in a clear, user-friendly format.
 
-I want to develop a straightforward tool that allows me to check the weather directly from the command line. 
-My primary motivation for this project is my obsession with the command line: it is by far my favourite UI. 
-Also a good chance for some Python & Robot Framework nerdery!
+![Screencap from the app](/commandline-screencap.png)
+
+I want to develop a straightforward tool that allows me to check the weather directly from the command line. I am obsessed with the command line
+and want to create my own tools for it. Also a good chance for some Python & Robot Framework nerdery!
 
 ## Todo
 
-- Cleanup the 
-- Format: 3x {date, time} {temperature} {rain/norain}
 - Tests with Robot Framework
-- CI/CD
+- Okay okay, maybe there could be a web UI as well?
+  - Weather statistics included?
+- CI/CD??
 
 ## Instructions
 
