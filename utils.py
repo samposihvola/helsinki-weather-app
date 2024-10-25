@@ -40,10 +40,10 @@ def get_weather_data():
       details = info['data']['next_6_hours']['summary']['symbol_code']
 
     if time == '09:00:00' or time == '15:00:00' or time == '21:00:00':
-      print(date, time)
-      print(details)
+      date = date.split('-')
+      date.reverse()
       weather_data_next_3_days.append({
-        'date': date,
+        'date': date[0] + '.' + date[1] + '.' + date[2],
         'time': time,
         'temperature': temperature,
         'details': details
@@ -58,7 +58,7 @@ def get_weather_data():
 
 def format_days():
   weather_data = get_weather_data()
-
+  print(weather_data)
 
 def print_data():
   weather_data = get_weather_data()
@@ -69,3 +69,6 @@ def print_data():
     print(info['temperature'], '°C')
     print(info['details'])
     print('')
+
+if __name__ == '__main__':
+  format_days()
