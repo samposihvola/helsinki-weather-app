@@ -4,7 +4,9 @@ Python app that retrieves weather data for Helsinki from the yr.no API and displ
 
 ![Screencap from the app at work](/commandline-screencap.png)
 
-Command line, Python & Robot Framework nerdery! There are still things to be done with this project: the next step is to create more tests for the Python code with Robot Framework. After that I am thinking of expanding this app into a modern-day web application. Then this would be the backend of the project.
+Command line, Python & Robot Framework nerdery! There are still things to be done with this project: 
+the next step is to create more tests for the Python code with Robot Framework. After that I am thinking 
+of expanding this app into a modern-day web application. Then this would be the backend of the project.
 
 ## Todo
 
@@ -28,4 +30,10 @@ python3 -m venv .venv
 source .venv/bin/activate
 pip install robotframework
 robot --version
+```
+
+If RequestsLibrary is not installed with the package, run
+
+```
+pip install robotframework-requests
 ```
