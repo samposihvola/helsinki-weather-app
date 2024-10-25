@@ -1,11 +1,10 @@
 # Helsinki Weather App
 
-Python app that retrieves weather data for Helsinki from the yr.no API and displays it in a clear, user-friendly format.
+Python app that retrieves weather data for Helsinki from the yr.no API and displays it in a simple format.
 
 ![Screencap from the app](/commandline-screencap.png)
 
-I want to develop a straightforward tool that allows me to check the weather directly from the command line. I am obsessed with the command line
-and want to create my own tools for it. Also a good chance for some Python & Robot Framework nerdery!
+Command line, Python & Robot Framework nerdery! There are still things to be done with this project: the next step is to create more tests for the Python code with Robot Framework. After that I am thinking of expanding this app into a modern-day web application. Then this would be the backend of the project.
 
 ## Todo
 
