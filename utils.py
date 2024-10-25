@@ -23,27 +23,25 @@ def get_helsinki_weather():
   else:
     print('failed to fetch content, response code:', response.status_code)
 
-def get_days():
-  today = datetime.date.today()
-  tomorrow = today + datetime.timedelta(1)
-  day_after_tomorrow = today + datetime.timedelta(2)
-  # convert datetime objects into strings
-  days = [str(today), str(tomorrow), str(day_after_tomorrow)]
-  return days
-
 def get_weather_data():
-  days = get_days()
   all_weather_data = get_helsinki_weather()
   weather_data_next_3_days = []
+  day_after_tomorrow = datetime.date.today() + datetime.timedelta(2)
 
   for info in all_weather_data['properties']['timeseries']:
     # divide date and time into different strings
     date = info['time'].split('T')[0]
     time = info['time'].split('T')[1].split('Z')[0]
     temperature = info['data']['instant']['details']['air_temperature']
-    details = info['data']['next_1_hours']['summary']['symbol_code']
+
+    if 'next_1_hours' in info['data']:
+      details = info['data']['next_1_hours']['summary']['symbol_code']
+    if 'next_6_hours' in info['data']:
+      details = info['data']['next_6_hours']['summary']['symbol_code']
 
     if time == '09:00:00' or time == '15:00:00' or time == '21:00:00':
+      print(date, time)
+      print(details)
       weather_data_next_3_days.append({
         'date': date,
         'time': time,
@@ -52,10 +50,15 @@ def get_weather_data():
       })
 
     # 9pm day after tomorrow is the last info we need
-    if date == days[2] and time == '21:00:00':
+    # convert datetime object into string
+    if date == str(day_after_tomorrow) and time == '21:00:00':
       break
 
   return weather_data_next_3_days
+
+def format_days():
+  weather_data = get_weather_data()
+
 
 def print_data():
   weather_data = get_weather_data()
