@@ -11,9 +11,10 @@ of expanding this app into a modern-day web application. Then this would be the 
 ## Todo
 
 - Tests with Robot Framework
-- Okay okay, maybe there could be a web UI as well?
-  - Weather statistics included?
-- CI/CD??
+- Prompt location -> search latitude & longitude -> insert to url as variables
+- Web UI
+  - Weather statistics for the location
+- CI/CD
 
 ## Instructions
 
