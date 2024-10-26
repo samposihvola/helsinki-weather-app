@@ -38,3 +38,10 @@ If RequestsLibrary is not installed with the package, run
 ```
 pip install robotframework-requests
 ```
+
+Install Coverage
+
+```
+source .venv/bin/activate
+python3 -m pip install coverage
+```
