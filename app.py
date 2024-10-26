@@ -1,4 +1,7 @@
 from utils import print_data
 
-if __name__ == '__main__':
+def main():
   print_data()
+
+if __name__ == '__main__':
+  main()
