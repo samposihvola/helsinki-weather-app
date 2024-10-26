@@ -36,7 +36,7 @@ def get_weather_data():
 
     if 'next_1_hours' in data['data']:
       details = data['data']['next_1_hours']['summary']['symbol_code']
-    if 'next_6_hours' in data['data']:
+    elif 'next_6_hours' in data['data']:
       details = data['data']['next_6_hours']['summary']['symbol_code']
 
     if time == '09:00:00' or time == '12:00:00' or time == '18:00:00' or time == '00:00:00':
