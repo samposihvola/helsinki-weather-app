@@ -2,9 +2,9 @@
 
 Python app that retrieves weather data for Helsinki from the yr.no API and displays it in a simple format.
 
-![Screencap from the app](/commandline-screencap.png)
+![Screencap from the app at work](/commandline-screencap.png)
 
-Command line, Python & Robot Framework nerdery! The next step is to finish E2E & unit tests following the [test plan](test-plan.md) i created. After that I am thinking 
+Command line, Python & Robot Framework nerdery! The next step is to finish E2E & unit tests following the [test plan](test-plan.md) I created. After that I am thinking 
 of expanding this app into a modern-day web application. Then this would be the backend of the project.
 
 ## Todo
