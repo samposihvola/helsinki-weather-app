@@ -5,8 +5,8 @@
 - [x] API returns status code 200
 - [x] App gives data for today & the following three days
 - [x] Printed data is in correct form: {dd.mm.yyyy}, {hh.mm}
-- [ ] Prints times {09.00}, {12.00}, {18.00}, {00.00} tomorrow & day after
-- [ ] Prints degrees in Celcius and weather details (sunny, rainy, cloudy etc.)
+- [x] Prints times {09.00}, {12.00}, {18.00}, {00.00} tomorrow & day after
+- [x] Prints degrees in Celcius and weather details (sunny, rainy, cloudy etc.)
 
 ## Unit tests
 
