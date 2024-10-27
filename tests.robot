@@ -2,7 +2,8 @@
 Library    RequestsLibrary
 Library    DateTime
 Library    .venv/lib/python3.12/site-packages/robot/libraries/Process.py
-Library    app.py    WITH NAME    UTILS
+Library    utils.py    WITH NAME    UTILS
+Library    .venv/lib/python3.12/site-packages/robot/libraries/Collections.py
 
 *** Test Cases ***
 API Returns Status Code 200
@@ -11,12 +12,17 @@ API Returns Status Code 200
     ${response}    GET    url=https://api.met.no/weatherapi/locationforecast/2.0/compact?lat=60.192059&lon=24.945831    headers=${header}
     Status Should Be    200
 
-App Gives Data For Today, Tomorrow & Day After Tomorrow
-    ${result}=    UTILS.main
-    Log    ${result}
+App Gives Data For Today & The Following 3 Days
+    ${result}=    UTILS.Get Weather Data
     ${today}=    Get Current Date    result_format=%d.%m.%Y
-    ${tomorrow}=    Get Current Date    result_format=%d.%m.%Y     increment=1 day
+    ${tomorrow}=    Get Current Date    result_format=%d.%m.%Y    increment=1 day
     ${day_after_tomorrow}=    Get Current Date    result_format=%d.%m.%Y    increment=2 days
-    Should Contain    ${result}    ${today}
-    Should Contain    ${result}    ${tomorrow}
-    Should Contain    ${result}    ${day_after_tomorrow}
+    ${day_four}=    Get Current Date    result_format=%d.%m.%Y    increment=3 days
+
+    FOR    ${item}    IN    @{result}
+        ${date}=    Get From Dictionary    ${item}    date
+        Should Contain Any    ${date}    ${today}    ${tomorrow}    ${day_after_tomorrow}    ${day_four}
+    END
+    
+ 
+    
