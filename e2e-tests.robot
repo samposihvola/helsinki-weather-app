@@ -15,7 +15,7 @@ API Returns Status Code 200
     ${response}    GET    url=https://api.met.no/weatherapi/locationforecast/2.0/compact?lat=60.192059&lon=24.945831    headers=${header}
     Status Should Be    200
 
-App Gives Data For Today & The Following 3 Days In Correct Form
+App Gives Correct Data For Today & The Following 3 Days In Correct Form
     ${result}=   UTILS.Get Weather Data
     ${today}=    Get Current Date    result_format=%d.%m.%Y
     ${tomorrow}=    Get Current Date    result_format=%d.%m.%Y    increment=1 day
@@ -27,6 +27,8 @@ App Gives Data For Today & The Following 3 Days In Correct Form
         ${time}=    Get From Dictionary    ${item}    time
         Should Contain Any    ${date}    ${today}    ${tomorrow}    ${day_after_tomorrow}    ${day_four}
         Should Contain Any    ${time}    @{TIMES}
+        Should Contain    ${item}    temperature    °C
+        Should Contain    ${item}    details
     END
  
     
