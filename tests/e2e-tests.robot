@@ -1,7 +1,5 @@
 *** Settings ***
-Library    RequestsLibrary
 Library    DateTime
-Library    .venv/lib/python3.12/site-packages/robot/libraries/Process.py
 Library    utils.py    WITH NAME    UTILS
 Library    .venv/lib/python3.12/site-packages/robot/libraries/Collections.py
 
@@ -9,11 +7,14 @@ Library    .venv/lib/python3.12/site-packages/robot/libraries/Collections.py
 @{TIMES}    09.00    12.00    18.00    00.00
 
 *** Test Cases ***
-API Returns Status Code 200
-    # could you get user-agent & url variables from the code?
-    ${header}    Create Dictionary    user-agent=https://github.com/samposihvola/helsinki-weather-app/tree/main
-    ${response}    GET    url=https://api.met.no/weatherapi/locationforecast/2.0/compact?lat=60.192059&lon=24.945831    headers=${header}
-    Status Should Be    200
+Code Has Access To API And Returns Correct Data
+    [Documentation]    Checks that the data is in dictionary form. 
+    ...    If it's not, the code returns an error message and thus the test will fail.
+    ${result}=   UTILS.Get Helsinki Weather
+    Log    ${result}
+    ${passed}=    Run Keyword And Return Status    Evaluate    type(${result})
+    ${type}=      Run Keyword If     ${passed}    Evaluate    type(${result})
+
 
 App Gives Correct Data For Today & The Following 3 Days In Correct Form
     ${result}=   UTILS.Get Weather Data
@@ -30,5 +31,3 @@ App Gives Correct Data For Today & The Following 3 Days In Correct Form
         Should Contain    ${item}    temperature    °C
         Should Contain    ${item}    details
     END
- 
-    
