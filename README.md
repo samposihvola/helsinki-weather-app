@@ -4,7 +4,7 @@ Python app that retrieves weather data for Helsinki from the yr.no API and displ
 
 ![Screencap from the app at work](/resources/commandline-screencap.png)
 
-Command line, Python & Robot Framework nerdery! The next step is to finish unit tests following my [test plan](/resources/test-plan.md). After that I am thinking 
+Command line, Python & Robot Framework nerdery! The next step is to finish unit tests following my [test plan](/tests/test-plan.md). After that I am thinking 
 of expanding this app into a modern-day web application. Then this would be the backend of the project.
 
 ## Todo
@@ -37,6 +37,12 @@ If RequestsLibrary is not installed with the package, run
 
 ```
 pip install robotframework-requests
+```
+
+Install pytest-mock
+
+```
+pip install pytest-mock
 ```
 
 Install Coverage
