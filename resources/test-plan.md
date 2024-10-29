@@ -1,8 +1,12 @@
 # Test Plan
 
-## E2E
+## API
 
 - [x] API returns status code 200
+
+## E2E
+
+- [ ] Code has access to API
 - [x] App gives data for today & the following three days
 - [x] Printed data is in correct form: {dd.mm.yyyy}, {hh.mm}
 - [x] Prints times {09.00}, {12.00}, {18.00}, {00.00} tomorrow & day after
