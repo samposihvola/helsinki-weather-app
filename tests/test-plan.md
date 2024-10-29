@@ -1,25 +1,24 @@
 # Test Plan
 
-## API
+## API (Robot Framework)
 
 - [x] API returns status code 200
 
-## E2E
+## E2E (Robot Framework)
 
-- [ ] Code has access to API
+- [x] Code has access to API and returns correct data
 - [x] App gives data for today & the following three days
 - [x] Printed data is in correct form: {dd.mm.yyyy}, {hh.mm}
 - [x] Prints times {09.00}, {12.00}, {18.00}, {00.00} tomorrow & day after
 - [x] Prints degrees in Celcius and weather details (sunny, rainy, cloudy etc.)
 
-## Unit tests
+## Unit tests (Pytest)
 
 ### utils.py
 
 - Measure the branch coverage with coverage.py?
 
 #### get_helsinki_weather
-- [ ] API returns correct data in JSON
 - [ ] Prints 'failed to fetch content...' with status code when API is accessed with wrong credentials
 - [ ] Prints 'failed to fetch content...' with status code when accessing a wrong url
 
