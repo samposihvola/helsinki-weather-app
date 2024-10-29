@@ -15,13 +15,13 @@ def get_helsinki_weather():
   
   if response.status_code == 200:
     data = response.json()
-    # convert data to a JSON formatted string with 4 spaces of intendation
-    data_str = json.dumps(data, indent=4)
+    # convert data to a JSON formatted string
+    data_str = json.dumps(data)
     # convert data into a python dictionary
     weather_data = json.loads(data_str)
     return weather_data
   else:
-    print('failed to fetch content, response code:', response.status_code)
+    raise Exception(f'failed to fetch content, response code {response.status_code}')
 
 def get_weather_data():
   all_weather_data = get_helsinki_weather()
