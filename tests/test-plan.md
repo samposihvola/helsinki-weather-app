@@ -19,8 +19,7 @@
 - Measure the branch coverage with coverage.py?
 
 #### get_helsinki_weather
-- [ ] Prints 'failed to fetch content...' with status code when API is accessed with wrong credentials
-- [ ] Prints 'failed to fetch content...' with status code when accessing a wrong url
+- [x] Access 'failed to fetch content...' branch
 
 #### get_weather_data
 - [ ] If {symbol_code} is {next_1_hours}, adds correct detail 
