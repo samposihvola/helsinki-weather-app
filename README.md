@@ -9,7 +9,6 @@ of expanding this app into a modern-day web application. Then this would be the 
 
 ## Todo
 
-- E2E tests with Robot Framework
 - Unit tests
 - Prompt location -> search latitude & longitude -> insert to url as variables
 - Web UI

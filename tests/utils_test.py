@@ -2,8 +2,10 @@ import pytest
 import sys
 import os
 import json
+import datetime
+
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
-from utils import get_helsinki_weather, get_weather_data
+from utils import *
 
 class TestUtils:
   # initialize mock data
@@ -61,3 +63,11 @@ class TestUtils:
 
     # assert that '01.00' is not found in any 'time' field in result
     assert all(entry['time'] != expected_result_03112024 for entry in result)
+
+  def test_get_weather_data_for_loop(self, mocker):
+    mocker.patch('utils.get_helsinki_weather', return_value=self.mock_data)
+    result = get_weather_data()
+
+    assert len(result) == 4
+    # check that the date 4.11.2024 is ignored to prove that the for loop has stopped when it should
+    assert not any(r['date'] == '4.11.2024' for r in result)

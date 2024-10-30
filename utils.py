@@ -57,8 +57,9 @@ def get_weather_data():
         'details': details
       })
 
-    # convert datetime object into string
-    if date > str(day_after_tomorrow):
+    # convert the date string into a datetime object for comparison
+    date_obj = datetime.datetime.strptime(date, '%Y-%m-%d').date()
+    if date_obj > day_after_tomorrow:
       break
 
   return weather_data_next_3_days
