@@ -90,6 +90,24 @@
               }
           }
         }
+      },
+      {
+        "time": "2024-11-04T09:00:00Z",
+        "data": {
+          "instant": {
+            "details": {
+              "air_temperature": 8.4
+            }
+          },
+          "something_else": {
+              "summary": {
+              "symbol_code": "cloudy"
+              },
+              "details": {
+              "precipitation_amount": 0
+              }
+          }
+        }
       }
     ]
   }

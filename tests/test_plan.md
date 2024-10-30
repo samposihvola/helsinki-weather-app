@@ -25,9 +25,10 @@
 - [x] If {symbol_code} is {next_1_hours}, adds correct detail 
 - [x] If {symbol_code} is {next_6_hours}, adds correct detail 
 - [x] Test {symbol_code} that is something else than mentioned above
-- [ ] Test time other than {09.00}, {12.00}, {18.00} or {00.00}
-- [ ] Should break the for-loop with a date bigger than {day_after_tomorrow}
-- [ ] Should not break the for-loop with a date smaller than or equal to {day_after_tomorrow}
+- [x] Test time other than {09.00}, {12.00}, {18.00} or {00.00}
+- [x] Should break the for-loop with a date bigger than {day_after_tomorrow}
+- [x] Should not break the for-loop with a date smaller than or equal to {day_after_tomorrow}
+  - This is verified in the previous unit tests
 
 #### print_data
 - [ ] Prints date when {data['time']} is {00.00}
