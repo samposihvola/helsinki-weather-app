@@ -29,7 +29,7 @@
           },
           "next_6_hours": {
               "summary": {
-              "symbol_code": "fair_day"
+              "symbol_code": "rainy"
               },
               "details": {
               "precipitation_amount": 0
@@ -45,9 +45,45 @@
               "air_temperature": 8.4
             }
           },
-          "next_1_hours": {
+          "next_12_hours": {
               "summary": {
-              "symbol_code": "fair_day"
+              "symbol_code": "sunny"
+              },
+              "details": {
+              "precipitation_amount": 0
+              }
+          }
+        }
+      },
+      {
+        "time": "2024-11-02T00:00:00Z",
+        "data": {
+          "instant": {
+            "details": {
+              "air_temperature": 8.4
+            }
+          },
+          "something_else": {
+              "summary": {
+              "symbol_code": "cloudy"
+              },
+              "details": {
+              "precipitation_amount": 0
+              }
+          }
+        }
+      },
+      {
+        "time": "2024-11-03T01:00:00Z",
+        "data": {
+          "instant": {
+            "details": {
+              "air_temperature": 8.4
+            }
+          },
+          "something_else": {
+              "summary": {
+              "symbol_code": "cloudy"
               },
               "details": {
               "precipitation_amount": 0

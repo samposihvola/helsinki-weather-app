@@ -38,7 +38,12 @@ def get_weather_data():
       details = data['data']['next_1_hours']['summary']['symbol_code']
     elif 'next_6_hours' in data['data']:
       details = data['data']['next_6_hours']['summary']['symbol_code']
+    elif 'next_12_hours' in data['data']:
+      details = data['data']['next_12_hours']['summary']['symbol_code']
+    else:
+      details = 'weather details not found from the data'
 
+    # add only the data containing these times to the list
     if time == '09:00:00' or time == '12:00:00' or time == '18:00:00' or time == '00:00:00':
       formatted_date = date.split('-')
       formatted_date.reverse()
