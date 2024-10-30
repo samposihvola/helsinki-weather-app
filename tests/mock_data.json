@@ -38,6 +38,24 @@
         }
       },
       {
+        "time": "2024-11-01T09:00:00Z",
+        "data": {
+          "instant": {
+            "details": {
+              "air_temperature": 8.4
+            }
+          },
+          "something_else": {
+              "summary": {
+              "symbol_code": "cloudy"
+              },
+              "details": {
+              "precipitation_amount": 0
+              }
+          }
+        }
+      },
+      {
         "time": "2024-11-01T18:00:00Z",
         "data": {
           "instant": {
@@ -74,7 +92,7 @@
         }
       },
       {
-        "time": "2024-11-03T01:00:00Z",
+        "time": "2024-11-02T09:00:00Z",
         "data": {
           "instant": {
             "details": {
@@ -92,7 +110,7 @@
         }
       },
       {
-        "time": "2024-11-04T09:00:00Z",
+        "time": "2024-11-03T01:00:00Z",
         "data": {
           "instant": {
             "details": {

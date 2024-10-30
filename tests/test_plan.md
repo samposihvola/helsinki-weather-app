@@ -31,7 +31,4 @@
   - This is verified in the previous unit tests
 
 #### print_data
-- [ ] Prints date when {data['time']} is {00.00}
-- [ ] Does not print date when {data['time']} is something else
-- [ ] Prints {time}, {temperature} and {details} when date is printed
-- [ ] Prints {time}, {temperature} and {details} when date is not printed
+- [x] Prints the data in correct form and prints dates when it should

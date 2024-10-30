@@ -66,21 +66,15 @@ def get_weather_data():
 
 def print_data():
   weather_data = get_weather_data()
-  # initialize a flag to check when to print the date
-  print_date = True
+  # track the current date
+  current_date = None
   
   for data in weather_data: 
-    if data['time'] == '00.00':
-      print_date = True
-    if print_date:
+    if data['date'] != current_date:
       print(data['date'])
-      print(' ', data['time'])
-      print(' ', data['temperature'], '°C', end='')
-      print('', data['details'])
-      print('')
-      print_date = False
-    else:
-      print(' ', data['time'])
-      print(' ', data['temperature'], '°C', end='')
-      print('', data['details'])
-      print('')
+      current_date = data['date']
+
+    print(' ', data['time'])
+    print(' ', data['temperature'], '°C', end='')
+    print('', data['details'])
+    print('')

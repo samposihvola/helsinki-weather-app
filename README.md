@@ -4,14 +4,12 @@ Python app that retrieves weather data for Helsinki from the yr.no API and displ
 
 ![Screencap from the app at work](/resources/commandline-screencap.png)
 
-Command line, Python & Robot Framework nerdery! The next step is to finish unit tests following my [test plan](/tests/test-plan.md). After that I am thinking 
-of expanding this app into a modern-day web application. Then this would be the backend of the project.
+Command line, Python & Robot Framework nerdery! The next step is to prompt the user for a location, after which the app will return the weather data for that specific location. I am also considering expanding this into a web application, probably with React so that it would render automatically.
 
 ## Todo
 
-- Unit tests
 - Prompt location -> search latitude & longitude -> insert to url as variables
-- Web UI
+- Web UI?
   - Weather statistics for the location
 - CI/CD
 
