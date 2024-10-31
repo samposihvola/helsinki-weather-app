@@ -3,20 +3,41 @@ import requests
 import json
 
 def get_location():
-  city = input('city: ')
-  country = input('country: ')
+  # get location coordinates from the openweathermap geocoding API
+  city = 'helsinki' #input('city: ')
+  country = 'finland' #input('country: ')
 
   with open ('openweather.txt', 'r') as file:
     api_key = file.read()
     
   location_url = f'http://api.openweathermap.org/geo/1.0/direct?q={city},{country}&appid={api_key}'
-  print(location_url)
+  
+  response = requests.get(location_url)
+  
+  if response.status_code == 200:
+    data = response.json()
+    # convert data to a JSON formatted string
+    data_str = json.dumps(data)
+    # convert data into a python dictionary
+    location_data = json.loads(data_str)
+    coordinates = {
+      'latitude': location_data[0]['lat'],
+      'longitude': location_data[0]['lon']
+    }
+  else:
+    raise Exception(f'failed to fetch content, response code {response.status_code}')
+  
+  return coordinates
+
 
 def get_helsinki_weather():
-  # store contact info into a variable
+  coordinates = get_location()
+  latitude = coordinates['latitude']
+  longitude = coordinates['longitude']
+  # store contact info into a variable as requested in the API docs
   sitename = 'https://github.com/samposihvola/helsinki-weather-app/tree/main'
   # endpoint with helsinki coordinates
-  url = 'https://api.met.no/weatherapi/locationforecast/2.0/compact?lat=60.192059&lon=24.945831'
+  url = f'https://api.met.no/weatherapi/locationforecast/2.0/compact?lat={latitude}&lon={longitude}'
   # create useragent object to be used as credentials for the API
   useragent = {
     'User-Agent': sitename
@@ -25,9 +46,7 @@ def get_helsinki_weather():
   
   if response.status_code == 200:
     data = response.json()
-    # convert data to a JSON formatted string
     data_str = json.dumps(data)
-    # convert data into a python dictionary
     weather_data = json.loads(data_str)
     return weather_data
   else:
@@ -88,6 +107,3 @@ def print_data():
     print(' ', data['temperature'], '°C', end='')
     print('', data['details'])
     print('')
-
-if __name__ == '__main__':
-  get_location()

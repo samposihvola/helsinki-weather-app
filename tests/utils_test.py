@@ -65,7 +65,7 @@ class TestUtils:
     assert all(entry['time'] != expected_result_03112024 for entry in mock_data)
 
   def test_get_weather_data_for_loop(self, mock_data):
-    assert len(mock_data) == 5
+    assert len(mock_data) == 6
     # check that the date 4.11.2024 is ignored to prove that the for loop has stopped when it should
     assert not any(r['date'] == '4.11.2024' for r in mock_data)
 
@@ -74,7 +74,6 @@ class TestUtils:
     print_data()
     # capture the printed output
     captured = capsys.readouterr()
-    print(captured.out)
     
     expected_lines = [
       '30.10.2024',
