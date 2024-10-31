@@ -20,6 +20,9 @@
 #### get_location
 
 - [ ] Test prompting with three different locations around the world
+- [ ] Test prompting with empty answers for both 'city' and 'country'
+- [ ] Test prompting with empty answer for 'city' and a legit 'country' 
+- [ ] Test prompting with a legit 'city' and an empty 'country'
 - [ ] openweather.txt can be accessed
 - [ ] Access 'failed to fetch content...' branch
 
