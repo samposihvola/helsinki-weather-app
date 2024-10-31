@@ -6,6 +6,7 @@
 
 ## E2E (Robot Framework)
 
+- [ ] Add prompting to both tests
 - [x] Code has access to API and returns correct data
 - [x] App gives data for today & the following three days
 - [x] Printed data is in correct form: {dd.mm.yyyy}, {hh.mm}
@@ -16,9 +17,13 @@
 
 ### utils.py
 
-- Measure the branch coverage with coverage.py?
+#### get_location
 
-#### get_helsinki_weather
+- [ ] Test prompting with three different locations around the world
+- [ ] openweather.txt can be accessed
+- [ ] Access 'failed to fetch content...' branch
+
+#### get_location_weather
 - [x] Access 'failed to fetch content...' branch
 
 #### get_weather_data

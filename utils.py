@@ -2,11 +2,41 @@ import datetime
 import requests
 import json
 
-def get_helsinki_weather():
-  # store contact info into a variable
+def get_location():
+  # get location coordinates from the openweathermap geocoding API
+  city = input('city: ')
+  country = input('country: ')
+
+  with open ('openweather.txt', 'r') as file:
+    api_key = file.read()
+    
+  location_url = f'http://api.openweathermap.org/geo/1.0/direct?q={city},{country}&appid={api_key}'
+  
+  response = requests.get(location_url)
+  
+  if response.status_code == 200:
+    data = response.json()
+    # convert data to a JSON formatted string
+    data_str = json.dumps(data)
+    # convert data into a python dictionary
+    location_data = json.loads(data_str)
+    coordinates = {
+      'latitude': location_data[0]['lat'],
+      'longitude': location_data[0]['lon']
+    }
+  else:
+    raise Exception(f'failed to fetch content, response code {response.status_code}')
+  
+  return coordinates
+
+def get_location_weather():
+  coordinates = get_location()
+  latitude = coordinates['latitude']
+  longitude = coordinates['longitude']
+  # store contact info into a variable as requested in the API docs
   sitename = 'https://github.com/samposihvola/helsinki-weather-app/tree/main'
   # endpoint with helsinki coordinates
-  url = 'https://api.met.no/weatherapi/locationforecast/2.0/compact?lat=60.192059&lon=24.945831'
+  url = f'https://api.met.no/weatherapi/locationforecast/2.0/compact?lat={latitude}&lon={longitude}'
   # create useragent object to be used as credentials for the API
   useragent = {
     'User-Agent': sitename
@@ -15,16 +45,14 @@ def get_helsinki_weather():
   
   if response.status_code == 200:
     data = response.json()
-    # convert data to a JSON formatted string
     data_str = json.dumps(data)
-    # convert data into a python dictionary
     weather_data = json.loads(data_str)
     return weather_data
   else:
     raise Exception(f'failed to fetch content, response code {response.status_code}')
 
-def get_weather_data():
-  all_weather_data = get_helsinki_weather()
+def format_weather_data():
+  all_weather_data = get_location_weather()
   weather_data_next_3_days = []
   day_after_tomorrow = datetime.date.today() + datetime.timedelta(2)
 
@@ -65,7 +93,7 @@ def get_weather_data():
   return weather_data_next_3_days
 
 def print_data():
-  weather_data = get_weather_data()
+  weather_data = format_weather_data()
   # track the current date
   current_date = None
   

@@ -1,17 +1,10 @@
-# Helsinki Weather App
+# Weather App
 
-Python app that retrieves weather data for Helsinki from the yr.no API and displays it in a simple format.
+Python app that retrieves weather data for prompted location from the yr.no API and displays it in a simple format.
 
 ![Screencap from the app at work](/resources/commandline-screencap.png)
 
-Command line, Python & Robot Framework nerdery! The next step is to prompt the user for a location, after which the app will return the weather data for that specific location. I am also considering expanding this into a web application, probably with React so that it would render automatically.
-
-## Todo
-
-- Prompt location -> search latitude & longitude -> insert to url as variables
-- Web UI?
-  - Weather statistics for the location
-- CI/CD
+Command line, Python & Robot Framework nerdery! The next step is to fix all my tests after adding the possibility to prompt a location. Check my [test plan](/tests/test_plan.md) for details. I am also considering expanding this into a web application, probably with React so that it would render automatically.
 
 ## Instructions
 
@@ -40,11 +33,4 @@ Install pytest-mock
 
 ```
 pip install pytest-mock
-```
-
-Install Coverage
-
-```
-source .venv/bin/activate
-python3 -m pip install coverage
 ```
