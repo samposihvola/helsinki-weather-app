@@ -2,6 +2,16 @@ import datetime
 import requests
 import json
 
+def get_location():
+  city = input('city: ')
+  country = input('country: ')
+
+  with open ('openweather.txt', 'r') as file:
+    api_key = file.read()
+    
+  location_url = f'http://api.openweathermap.org/geo/1.0/direct?q={city},{country}&appid={api_key}'
+  print(location_url)
+
 def get_helsinki_weather():
   # store contact info into a variable
   sitename = 'https://github.com/samposihvola/helsinki-weather-app/tree/main'
@@ -78,3 +88,6 @@ def print_data():
     print(' ', data['temperature'], '°C', end='')
     print('', data['details'])
     print('')
+
+if __name__ == '__main__':
+  get_location()
