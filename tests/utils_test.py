@@ -14,12 +14,21 @@ def mock_data(mocker):
     mock_data = json.load(file)
 
   # create mock data for get_helsinki_weather function to return
-  mocker.patch('utils.get_helsinki_weather', return_value=mock_data)
+  mocker.patch('utils.get_location_weather', return_value=mock_data)
   # call get_weather_data after mocking
-  return get_weather_data()
+  return format_weather_data()
+
+def mock_location(mocker):
+  # create mock location info
+  mocker.patch('utils.get_location', return_value={
+    'latitude': '60.1674881',
+    'longitude': '24.9427473'
+  })
+
+  return get_location()
 
 class TestUtils:
-  def test_get_helsinki_weather_error_branch(self, mocker):
+  def test_get_helsinki_weather_error_branch(self, mocker):#, mock_location):
     # create a mock response object with a 404 status code to simulate an error from the API
     mock_response = mocker.Mock()
     mock_response.status_code = 404
@@ -28,7 +37,7 @@ class TestUtils:
 
     # expect an exception due to the 404 response
     with pytest.raises(Exception) as excinfo:
-      get_helsinki_weather()
+      get_location_weather()
     
     assert 'failed to fetch content, response code 404' in str(excinfo.value)
 

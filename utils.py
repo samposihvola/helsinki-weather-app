@@ -4,8 +4,8 @@ import json
 
 def get_location():
   # get location coordinates from the openweathermap geocoding API
-  city = 'helsinki' #input('city: ')
-  country = 'finland' #input('country: ')
+  city = input('city: ')
+  country = input('country: ')
 
   with open ('openweather.txt', 'r') as file:
     api_key = file.read()
@@ -29,8 +29,7 @@ def get_location():
   
   return coordinates
 
-
-def get_helsinki_weather():
+def get_location_weather():
   coordinates = get_location()
   latitude = coordinates['latitude']
   longitude = coordinates['longitude']
@@ -52,8 +51,8 @@ def get_helsinki_weather():
   else:
     raise Exception(f'failed to fetch content, response code {response.status_code}')
 
-def get_weather_data():
-  all_weather_data = get_helsinki_weather()
+def format_weather_data():
+  all_weather_data = get_location_weather()
   weather_data_next_3_days = []
   day_after_tomorrow = datetime.date.today() + datetime.timedelta(2)
 
@@ -94,7 +93,7 @@ def get_weather_data():
   return weather_data_next_3_days
 
 def print_data():
-  weather_data = get_weather_data()
+  weather_data = format_weather_data()
   # track the current date
   current_date = None
   
