@@ -1,10 +1,10 @@
 # Weather App
 
-Python app that retrieves weather data for prompted location from the yr.no API and displays it in a simple format.
+Python app that retrieves weather data for prompted location from the yr.no API and displays it in a simple format. Location coordinates are fetched from the OpenWeatherMap API.
 
 ![Screencap from the app at work](/resources/commandline-screencap.png)
 
-Command line, Python & Robot Framework nerdery! The next step is to fix all my tests after adding the possibility to prompt a location. Check my [test plan](/tests/test_plan.md) for details. I am also considering expanding this into a web application, probably with React so that it would render automatically.
+Command line, Python & Robot Framework nerdery! The next step is to fix all my tests after adding the possibility to prompt a location. Check my [test plan](/tests/test_plan.md) for details. 
 
 ## Instructions
 

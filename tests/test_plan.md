@@ -2,7 +2,8 @@
 
 ## API (Robot Framework)
 
-- [x] API returns status code 200
+- [x] Yr.no API returns status code 200
+- [ ] OpenWeatherMap API returns status code 200
 
 ## E2E (Robot Framework)
 
@@ -15,7 +16,7 @@
 
 ## Unit tests (Pytest)
 
-### utils.py
+### location_weather.py
 
 #### get_location
 
@@ -28,6 +29,8 @@
 
 #### get_location_weather
 - [x] Access 'failed to fetch content...' branch
+
+### weather_printer.py
 
 #### get_weather_data
 - [x] If {symbol_code} is {next_1_hours}, adds correct detail 
