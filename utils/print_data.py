@@ -1,5 +1,7 @@
 from utils.format_data import FormatData
 
+# as the name implies, this module prints the formatted data to the command line
+
 class PrintData:
   def __init__(self):
     self.formatted_data = FormatData().format_weather_data
