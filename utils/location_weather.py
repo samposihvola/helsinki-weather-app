@@ -10,7 +10,7 @@ class LocationWeather:
     self.location = GetLocation().get_location
     self.sitename = 'https://github.com/samposihvola/helsinki-weather-app/tree/main'
 
-  def get_weather(self):
+  def location_weather(self):
     coordinates = self.location()
     latitude = coordinates['latitude']
     longitude = coordinates['longitude']

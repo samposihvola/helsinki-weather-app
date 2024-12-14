@@ -5,7 +5,7 @@ from utils.location_weather import LocationWeather
 
 class FormatData:
   def __init__(self):
-    self.weather_data = LocationWeather().get_weather()
+    self.weather_data = LocationWeather().location_weather()
     self.times = ['09:00:00', '12:00:00', '18:00:00', '00:00:00']
 
   def format_weather_data(self):
