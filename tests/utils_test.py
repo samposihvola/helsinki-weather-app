@@ -1,34 +1,16 @@
 import pytest
 import sys
 import os
-import json
 
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
-from utils.format_data import *
-
-# initialize mock data
-@pytest.fixture
-def mock_data(mocker):
-  file_path = os.path.join(os.path.dirname(__file__), 'mock_data.json')
-  with open(file_path, 'r') as file:
-    mock_data = json.load(file)
-
-  # create mock data for get_helsinki_weather function to return
-  mocker.patch('utils.get_location_weather', return_value=mock_data)
-  # call get_weather_data after mocking
-  return format_weather_data()
-
-def mock_location(mocker):
-  # create mock location info
-  mocker.patch('utils.get_location', return_value={
-    'latitude': '60.1674881',
-    'longitude': '24.9427473'
-  })
-
-  return get_location()
+from tests.mock_data import mock_data, mock_location
+from utils.format_data import FormatData
+from utils.get_location import GetLocation
+from utils.location_weather import LocationWeather
+from utils.print_data import PrintData
 
 class TestUtils:
-  def test_get_helsinki_weather_error_branch(self, mocker):#, mock_location):
+  def test_get_helsinki_weather_error_branch(self, mocker):
     # create a mock response object with a 404 status code to simulate an error from the API
     mock_response = mocker.Mock()
     mock_response.status_code = 404
@@ -37,7 +19,7 @@ class TestUtils:
 
     # expect an exception due to the 404 response
     with pytest.raises(Exception) as excinfo:
-      get_location_weather()
+      LocationWeather.location_weather(self)
     
     assert 'failed to fetch content, response code 404' in str(excinfo.value)
 
@@ -79,8 +61,8 @@ class TestUtils:
     assert not any(r['date'] == '4.11.2024' for r in mock_data)
 
   def test_print_data(self, mock_data, mocker, capsys):
-    mocker.patch('utils.print_data', return_value=mock_data)
-    print_data()
+    mocker.patch('utils.print_data.PrintData.print_data', return_value=mock_data)
+    PrintData.print_data()
     # capture the printed output
     captured = capsys.readouterr()
     
