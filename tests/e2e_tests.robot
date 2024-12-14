@@ -11,7 +11,7 @@ Library    .venv/lib/python3.12/site-packages/robot/libraries/Collections.py
 Code Has Access To Both APIs And Returns Correct Data
     [Documentation]    Checks that the data is in dictionary form. 
     ...    If it's not, the code returns an error message and thus the test will fail.
-    ${result}=   LOCATION_WEATHER.Get Weather    ${}
+    ${result}=   LOCATION_WEATHER.Get Weather
     Log    ${result}
     ${passed}=    Run Keyword And Return Status    Evaluate    type(${result})
     ${type}=      Run Keyword If     ${passed}    Evaluate    type(${result})

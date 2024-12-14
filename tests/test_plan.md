@@ -16,8 +16,6 @@
 
 ## Unit tests (Pytest)
 
-### location_weather.py
-
 #### get_location
 
 - [ ] Test prompting with three different locations around the world
@@ -27,12 +25,12 @@
 - [ ] openweather.txt can be accessed
 - [ ] Access 'failed to fetch content...' branch
 
-#### get_location_weather
+#### location_weather
 - [x] Access 'failed to fetch content...' branch
 
-### weather_printer.py
+### weather_printer
 
-#### get_weather_data
+#### format_data
 - [x] If {symbol_code} is {next_1_hours}, adds correct detail 
 - [x] If {symbol_code} is {next_6_hours}, adds correct detail 
 - [x] Test {symbol_code} that is something else than mentioned above

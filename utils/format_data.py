@@ -1,10 +1,10 @@
 import datetime
-from location_weather import LocationWeather
+from utils.location_weather import LocationWeather 
 
-class WeatherPrinter:
+class FormatData:
   def __init__(self):
-    location_weather = LocationWeather()
-    self.weather_data = location_weather.get_weather()
+    self.weather_data = LocationWeather().get_weather()
+    self.times = ['09:00:00', '12:00:00', '18:00:00', '00:00:00']
 
   def format_weather_data(self):
     weather_data_next_3_days = []
@@ -26,7 +26,7 @@ class WeatherPrinter:
         details = 'weather details not found from the data'
 
       # add only the data containing these times to the list
-      if time == '09:00:00' or time == '12:00:00' or time == '18:00:00' or time == '00:00:00':
+      if time in self.times:
         formatted_date = date.split('-')
         formatted_date.reverse()
         formatted_time = time.split(':')
@@ -44,18 +44,3 @@ class WeatherPrinter:
         break
 
     return weather_data_next_3_days
-
-  def print_data(self):
-    weather_data = self.format_weather_data()
-    # track the current date
-    current_date = None
-    
-    for data in weather_data: 
-      if data['date'] != current_date:
-        print(data['date'])
-        current_date = data['date']
-
-      print(' ', data['time'])
-      print(' ', data['temperature'], '°C', end='')
-      print('', data['details'])
-      print('')

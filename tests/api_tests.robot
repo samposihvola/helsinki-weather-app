@@ -7,7 +7,7 @@ ${API_KEY_FILE}    utils/openweather.txt
 
 *** Test Cases ***
 OpenWeather API Returns Status Code 200
-    ${OpenWeatherAPIKey}=    Get File    ${API_KEY_FILE}
+    ${OpenWeatherAPIKey}    Get File    ${API_KEY_FILE}
     ${response}    GET    url=http://api.openweathermap.org/geo/1.0/direct?q=helsinki,finland&appid=${OpenWeatherAPIKey}
     Status Should Be    200 
 
