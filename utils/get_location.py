@@ -2,8 +2,8 @@ import requests
 import json
 import os
 
-# this module is responsible for prompting the user for wanted location
-# and returning the coordinates for location_weather module to use
+# this module is responsible for prompting the wanted location
+# returns the coordinates for location_weather module to use
 
 class GetLocation:
   def __init__(self):

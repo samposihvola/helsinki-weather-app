@@ -4,7 +4,7 @@ import os
 import json
 
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
-from utils import *
+from utils.format_data import *
 
 # initialize mock data
 @pytest.fixture
