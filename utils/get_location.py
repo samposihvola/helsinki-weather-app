@@ -2,6 +2,9 @@ import requests
 import json
 import os
 
+# this module is responsible for prompting the user for wanted location
+# and returning the coordinates for location_weather module to use
+
 class GetLocation:
   def __init__(self):
     self.api_key = self._load_api_key()
@@ -39,6 +42,3 @@ class GetLocation:
       raise Exception(f'failed to fetch content, response code {response.status_code}')
     
     return coordinates
-
-if __name__ == '__main__':
-  GetLocation()

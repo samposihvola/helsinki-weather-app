@@ -2,6 +2,9 @@ import requests
 import json
 from utils.get_location import GetLocation
 
+# this module gets the correct coordinates from get_location module
+# sends them to yr.no API and saves the fetched data in JSON
+
 class LocationWeather:
   def __init__(self):
     self.location = GetLocation().get_location

@@ -1,6 +1,8 @@
 import datetime
 from utils.location_weather import LocationWeather 
 
+# responsible for tidying up the json data
+
 class FormatData:
   def __init__(self):
     self.weather_data = LocationWeather().get_weather()
