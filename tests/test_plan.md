@@ -8,6 +8,7 @@
 ## E2E (Robot Framework)
 
 - [x] Prompt feature works
+- [ ] Should return 'invalid coordinates received' with wrong prompts
 - [x] Code has access to APIs
 - [x] App gives data for today & the following three days
 - [x] Printed data is in correct form: {dd.mm.yyyy}, {hh.mm}
