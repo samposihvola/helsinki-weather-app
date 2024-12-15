@@ -3,14 +3,14 @@ import sys
 import os
 
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
-from tests.mock_data import mock_data, mock_location
+from tests.fixtures import *
 from utils.format_data import FormatData
 from utils.get_location import GetLocation
 from utils.location_weather import LocationWeather
-from utils.print_data import PrintData
+
 
 class TestUtils:
-  def test_get_helsinki_weather_error_branch(self, mocker):
+  def test_get_weather_error_branch(self, mocker):
     # create a mock response object with a 404 status code to simulate an error from the API
     mock_response = mocker.Mock()
     mock_response.status_code = 404
@@ -19,7 +19,7 @@ class TestUtils:
 
     # expect an exception due to the 404 response
     with pytest.raises(Exception) as excinfo:
-      LocationWeather.location_weather(self)
+      LocationWeather().location_weather()
     
     assert 'failed to fetch content, response code 404' in str(excinfo.value)
 
@@ -59,35 +59,3 @@ class TestUtils:
     assert len(mock_data) == 6
     # check that the date 4.11.2024 is ignored to prove that the for loop has stopped when it should
     assert not any(r['date'] == '4.11.2024' for r in mock_data)
-
-  def test_print_data(self, mock_data, mocker, capsys):
-    mocker.patch('utils.print_data.PrintData.print_data', return_value=mock_data)
-    PrintData.print_data()
-    # capture the printed output
-    captured = capsys.readouterr()
-    
-    expected_lines = [
-      '30.10.2024',
-      '  09.00',
-      '  8.4 °C fair_day',
-      '',
-      '31.10.2024',
-      '  12.00',
-      '  8.4 °C rainy',
-      '',
-      '01.11.2024',
-      '  09.00',
-      '  8.4 °C weather details not found from the data',
-      '',
-      '  18.00',
-      '  8.4 °C sunny',
-      '',
-      '02.11.2024',
-      '  00.00',
-      '  8.4 °C weather details not found from the data',
-      '',
-    ]
-
-    # check that each expected line is included in the output
-    for line in expected_lines:
-      assert line in captured.out

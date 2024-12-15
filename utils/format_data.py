@@ -8,7 +8,7 @@ class FormatData:
     self.weather_data = LocationWeather().location_weather()
     self.times = ['09:00:00', '12:00:00', '18:00:00', '00:00:00']
 
-  def format_weather_data(self):
+  def format_data(self):
     weather_data_next_3_days = []
     day_after_tomorrow = datetime.date.today() + datetime.timedelta(2)
 
@@ -45,4 +45,5 @@ class FormatData:
       if date_obj > day_after_tomorrow:
         break
 
+    print(weather_data_next_3_days)
     return weather_data_next_3_days

@@ -4,7 +4,7 @@ from utils.format_data import FormatData
 
 class PrintData:
   def __init__(self):
-    self.formatted_data = FormatData().format_weather_data
+    self.formatted_data = FormatData().format_data
 
   def print_data(self):
     weather_data = self.formatted_data()
