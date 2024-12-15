@@ -45,5 +45,4 @@ class FormatData:
       if date_obj > day_after_tomorrow:
         break
 
-    print(weather_data_next_3_days)
     return weather_data_next_3_days
