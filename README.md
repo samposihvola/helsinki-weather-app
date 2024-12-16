@@ -4,8 +4,6 @@ Python app that retrieves weather data for prompted location from the yr.no API 
 
 ![Screencap from the app at work](/resources/commandline-screencap.png)
 
-Command line, Python & Robot Framework nerdery! The next step is to fix all my tests after adding the possibility to prompt a location. Check my [test plan](/tests/test_plan.md) for details. 
-
 ## Instructions
 
 Run the app

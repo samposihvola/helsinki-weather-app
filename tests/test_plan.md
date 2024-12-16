@@ -8,7 +8,10 @@
 ## E2E (Robot Framework)
 
 - [x] Prompt feature works
-- [ ] Should return 'invalid coordinates received' with wrong prompts
+- [ ] Test prompting with three different locations around the world
+- [ ] Test prompting with empty answers for both 'city' and 'country'
+- [ ] Test prompting with empty answer for 'city' and a legit 'country' 
+- [ ] Test prompting with a legit 'city' and an empty 'country'
 - [x] Code has access to APIs
 - [x] App gives data for today & the following three days
 - [x] Printed data is in correct form: {dd.mm.yyyy}, {hh.mm}
@@ -18,14 +21,11 @@
 
 #### get_location
 
-- [ ] Test prompting with three different locations around the world
-- [ ] Test prompting with empty answers for both 'city' and 'country'
-- [ ] Test prompting with empty answer for 'city' and a legit 'country' 
-- [ ] Test prompting with a legit 'city' and an empty 'country'
 - [ ] openweather.txt can be accessed
 - [ ] Should raise error if openweather.txt can not be accessed
 - [ ] Access if not coordinates branch
 - [ ] Access 'failed to fetch content...' branch
+- [ ] Should return 'invalid coordinates received' with wrong prompts
 
 #### location_weather
 - [x] Access 'failed to fetch content...' branch
